@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+.singup input:focus{
+    outline: None;
+}
+
