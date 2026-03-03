@@ -1,21 +1,25 @@
 'use server'
-import z from "zod"
+import axios from "axios";
 
 const SingUpActions = async(name: string,userName: string,password: string) => {
-    const formData = {name,userName,password}
-    const singUpValidation = z.object({
-        name: z.string(),
-        userName: z.string().min(8, 'userNameNotStrong'),
-        password: z.string().min(8, 'passwordNotStrong')
-    });
 
-    const result = singUpValidation.safeParse(formData);
-    
+    const dataSet = {
+        name: name,
+        username: userName,
+        password: password
+    };
+
     try{
-        console.log(result.error?.issues[0].message)
-    }catch(err){
-        console.log(err);
+        const res = await axios.post("http://127.0.0.1:8000/singup/", dataSet);
+        // console.log(res.status)
+        if (res?.status === 201){
+            return res?.status;
+        }
 
+    }catch(err: any){
+
+        // console.log(err.response?.data);
+        return err.response?.data;
     }
 }
 export default SingUpActions;

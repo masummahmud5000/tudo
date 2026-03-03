@@ -22,12 +22,12 @@ export default function RootLayout({
       <body>
         <nav>
           <div className="bg-green-500 text-white py-5 text-2xl px-5 border-b-6 border-amber-800">
-            <h1><span className="text-amber-200 font-bold">মাসুম + </span>মনিরের ফুফু</h1>
+            <h1><span className="text-amber-200 font-bold">Tudo </span>List</h1>
           </div>
           <div className="flex gap-7 justify-center items-center bg-green-300 py-1 text-blue-600">
             <Link className="hover:font-bold cursor-pointer" href='/'>Home</Link>
             <Link className="hover:font-bold cursor-pointer" href='/dashboard'>Dashboard</Link>
-            <Link className="hover:font-bold cursor-pointer" href='/singUp'>SingUp</Link>
+            <Link className="hover:font-bold cursor-pointer" href='/singUp'>SignUp</Link>
             <Link className="hover:font-bold cursor-pointer" href='/singIn'>LogIn</Link>
           </div>
         </nav>
