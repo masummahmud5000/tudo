@@ -1,4 +1,10 @@
 import UserName from "@/app/_clientComponents/dashboard"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard",
+    description: "Visit Your Profile & Check Your List Items"
+};
 
 const Dashboard = () => {
     return(

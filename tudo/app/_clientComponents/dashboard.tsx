@@ -13,7 +13,7 @@ export default function UserName (){
 
                 <div className="flex gap-5">
                     <span onClick={() => setHide(!hide)} className="bg-green-600 hover:bg-green-700 text-center py-1  px-3 text-bold text-white rounded-lg">+ Add List</span>
-                    <Link href='#' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg">List Items</Link>
+                    <Link href='/listItems' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg">List Items</Link>
 
                     <h1 className="fa fa-right-from-bracket absolute right-5 bottom-5 text-2xl text-red-600 bg-white rounded-xl p-1"></h1>
                 </div>

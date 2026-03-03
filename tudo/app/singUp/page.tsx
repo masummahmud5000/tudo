@@ -1,4 +1,10 @@
 import SingUpClient from "../_clientComponents/singUp";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Sing Up",
+    description: "Open a new Account, This Tudo List"
+};
 
 const SingUp = () => {
     return(

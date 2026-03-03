@@ -1,4 +1,10 @@
 import SingInClient from "../_clientComponents/singIn";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Log In",
+    description: "Log In now, This Tudo List Applicaiton!"
+};
 
 const SingIn = () => {
     return(
