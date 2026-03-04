@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useState } from "react"
+import LogOut from "../_serverActions/logout";
 
 
 export default function UserName (){
@@ -12,10 +13,10 @@ export default function UserName (){
                 <h1 className="text-lg text-white">User Name : <span className="font-bold">masum000</span></h1>
 
                 <div className="flex gap-5">
-                    <span onClick={() => setHide(!hide)} className="bg-green-600 hover:bg-green-700 text-center py-1  px-3 text-bold text-white rounded-lg">+ Add List</span>
-                    <Link href='/listItems' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg">List Items</Link>
+                    <span onClick={() => setHide(!hide)} className="bg-green-600 hover:bg-green-700 text-center py-1  px-3 text-bold text-white rounded-lg cursor-pointer">+ Add List</span>
+                    <Link href='/dashboard/listItems' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg cursor-pointer">List Items</Link>
 
-                    <h1 className="fa fa-right-from-bracket absolute right-5 bottom-5 text-2xl text-red-600 bg-white rounded-xl p-1"></h1>
+                    <h1 onClick={LogOut} className="fa fa-right-from-bracket cursor-pointer absolute right-5 bottom-5 text-2xl text-red-600 bg-white rounded-xl p-1"></h1>
                 </div>
             </div>
             <hr className="mt-10"/>

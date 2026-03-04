@@ -1,4 +1,4 @@
-import ListItemsClient from "../_clientComponents/listItems";
+import ListItemsClient from "../../_clientComponents/listItems";
 
 const ListItems = () => {
     return(

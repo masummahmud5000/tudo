@@ -2,9 +2,11 @@
 import "@/app/globals.css"
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import SingUpActions from "../_serverActions/singUpActions";
 
 const SingUpClient = () => {
+    const router = useRouter();
     const [isLoading,setIsLoading] = useState(false);
     const [name,setName] = useState("");
     const [userName,setUserName] = useState("");
@@ -26,8 +28,8 @@ const SingUpClient = () => {
 
                 setUserNameError("")
                 setPasswordError("")
-            }
-            if(res.username?.includes('userAlreadyExists')){
+                router.push('/dashboard')
+            }else if(res.username?.includes('userAlreadyExists')){
                 setUserNameError('user-name already exists')
                 setPasswordError("")
                 setTimeout(() => setUserNameError(""), 4000)
@@ -65,14 +67,14 @@ const SingUpClient = () => {
                     <h1 className="fa fa-user-tag"></h1>
                     <input value={userName} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserName(e.target.value)} className="w-80" type="text" required placeholder="Create Uniqee User-Name"/>
                 </div>
-                <h1 className="text-center text-xl text-red-600 font-bold animate-pulse">{userNameError}</h1>
+                <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{userNameError}</h1>
 
                 <label className="text-xl mt-8">Password</label>
                 <div className="flex gap-2 items-center mt-4 text-xl border-b-2 border-amber-600">
                     <h1 className="fa fa-lock"></h1>
                     <input value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} className="w-80" type="password" required placeholder="Create Uniqee Password"/>
                 </div>
-                <h1 className="text-center text-xl text-red-600 font-bold animate-pulse">{passwordError}</h1>
+                <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{passwordError}</h1>
 
                 <span className="mt-5 text-blue-700">Already sing-up <Link className="cursor-pointer font-bold" href="/singIn">LogIn</Link></span>
                 <button className="mt-8 bg-green-600 py-2 font-bold text-xl rounded-2xl text-white cursor-pointer hover:bg-green-700" type="submit">{isLoading ? <span className="flex justify-center items-center gap-3"><h1 className="fa fa-spinner text-2xl animate-spin"></h1>Proccess...</span> : "Submit"}</button>
