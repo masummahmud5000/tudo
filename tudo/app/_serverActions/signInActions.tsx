@@ -13,6 +13,7 @@ const SignInActions = async(userName: string,password: string) => {
     try{
         const res = await api.post("signin/", dataSet);
         const setCookie = res.headers['set-cookie'];
+        console.log(res.data.name)
         if (setCookie && Array.isArray(setCookie)){
             const cookieStore = await cookies();
             
@@ -20,11 +21,11 @@ const SignInActions = async(userName: string,password: string) => {
                 const parts = cookieString.split(';');
                 const [name,value] = parts[0].split('=');
 
-                cookieStore.set(name,value,{httpOnly: true, sameSite: 'lax', secure: false})
+                cookieStore.set(name,value,{httpOnly: true, sameSite: 'lax', secure: false, maxAge: 60 * 3})
             })
         };
         // console.log(res.status)
-        return res?.status;
+        return{status: res.status, data: res?.data};
     }catch(err: any){
         return err.response?.data;
     }

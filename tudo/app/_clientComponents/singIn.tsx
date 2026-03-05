@@ -17,10 +17,12 @@ const SingInClient = () => {
         setIsLoading(true)
         try{
             const res = await SignInActions(userName,password)
-            // console.log(res.non_field_errors)
-            if(res === 200){
+            // console.log(res.data, res.status)
+            if(res.status === 200){
                 setUserName("")
                 setPassword("")
+                localStorage.setItem('name', res?.data?.name)
+                
                 router.push('/dashboard')
             }else if(res?.non_field_errors?.includes("userNotFound")){
                 setUserError("User-Name or Password invalid")
