@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react"
 import LogOut from "../_serverActions/logout";
 import { serverApi } from "../_serverActions/axiosInstance";
+import ListSubmit from "../_serverActions/listSubmit";
 
 
 export default function UserName (){
@@ -25,12 +26,8 @@ export default function UserName (){
 
     async function listSubmit(e: React.SubmitEvent){
         e.preventDefault()
-        const dataSet: {subject: string, textbox: string} = {
-            subject: subject,
-            textbox: textBox
-        };
         try{
-            const res = await serverApi({url: 'textbox/', method: 'post', data: dataSet, withCredentials: true})
+            const res = await ListSubmit(subject,textBox);
         }finally{
 
         }

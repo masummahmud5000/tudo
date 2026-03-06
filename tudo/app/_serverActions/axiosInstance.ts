@@ -3,6 +3,7 @@
 import axios from "axios"
 import { cookies } from "next/headers"
 import { api } from "./axios"
+import { redirect } from "next/navigation"
 
 
 export const serverApi = async (config: any) => {
@@ -24,6 +25,7 @@ export const serverApi = async (config: any) => {
             }catch{
                 cookieStore.delete('access_token');
                 cookieStore.delete('refresh_token');
+                // redirect('/singIn')
                 throw new Error('refreshTokenInvalid');
             }
         }else{
