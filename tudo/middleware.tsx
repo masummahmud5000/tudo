@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Auth pages (login / register)
-  const isAuthPage = pathname === "/singIn" || pathname === "/singUp";
+  const isAuthPage = pathname === "/signIn" || pathname === "/signUp";
 
   if (isAuthPage) {
     // If already logged in → redirect to dashboard
@@ -23,7 +23,7 @@ export function middleware(request: NextRequest) {
   if (isProtectedRoute) {
     // If no access token → redirect to login
     if (!access) {
-      return NextResponse.redirect(new URL("/singIn", request.url));
+      return NextResponse.redirect(new URL("/signIn", request.url));
     }
   }
 
@@ -31,5 +31,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/singIn", "/singUp"],
+  matcher: ["/dashboard/:path*", "/signIn", "/signUp"],
 };

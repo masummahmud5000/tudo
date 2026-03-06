@@ -27,8 +27,8 @@ export default function RootLayout({
           <div className="flex gap-7 lg:gap-30 justify-center items-center bg-green-300 py-1 text-blue-600">
             <Link className="hover:font-bold cursor-pointer" href='/'>Home</Link>
             <Link className="hover:font-bold cursor-pointer" href='/dashboard'>Dashboard</Link>
-            <Link className="hover:font-bold cursor-pointer" href='/singUp'>SignUp</Link>
-            <Link className="hover:font-bold cursor-pointer" href='/singIn'>LogIn</Link>
+            <Link className="hover:font-bold cursor-pointer" href='/signUp'>SignUp</Link>
+            <Link className="hover:font-bold cursor-pointer" href='/signIn'>LogIn</Link>
           </div>
         </nav>
         {children}

@@ -1,4 +1,5 @@
 'use server'
+import { redirect } from "next/navigation";
 import { serverApi } from "./axiosInstance";
 
 const ListSubmit = async(subject: string,text: string) => {
@@ -9,8 +10,13 @@ const ListSubmit = async(subject: string,text: string) => {
 
     try{
         const res = await serverApi({url: 'textbox/', method: 'post', data: dataSet})
+        return res?.status;
     }catch(err: any){
-        console.log(err.message || err)
+        if(err.message === 'refreshTokenInvalid'){
+            redirect('/signIn');
+        }else{
+            return err;
+        }
     }
 
 }

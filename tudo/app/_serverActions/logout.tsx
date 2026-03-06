@@ -9,15 +9,15 @@ const LogOut = async() => {
         const refresh = cookieStore.get('refresh_token')
         
         if (!refresh || !access){
-            redirect("/singIn")
+            redirect("/signIn")
         }else{
             cookieStore.delete('access_token')
             cookieStore.delete('refresh_token')
-            redirect("/singIn")
+            redirect("/signIn")
         }
         
     }finally{
-        redirect("/singIn")
+        redirect("/signIn")
     }
 }
 export default LogOut;
