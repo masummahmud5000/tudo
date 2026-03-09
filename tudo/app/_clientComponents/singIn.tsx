@@ -51,7 +51,7 @@ const SingInClient = () => {
                     <h1 className="fa fa-lock"></h1>
                     <input value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} className="w-80" type="password" required placeholder="Enter Your Password"/>
                 </div>
-                <span className="mt-5 text-blue-700">No Account <Link className="cursor-pointer font-bold" href="/singUp">Create Account</Link></span>
+                <span className="mt-5 text-blue-700">No Account <Link className="cursor-pointer font-bold" href="/signUp">Create Account</Link></span>
                 <button className="mt-8 bg-green-600 py-2 font-bold text-xl rounded-2xl text-white cursor-pointer hover:bg-green-700" type="submit">{isLoading ? <span className="flex justify-center items-center gap-3"><h1 className="fa fa-spinner text-2xl animate-spin"></h1>Proccess...</span> : "LogIn"}</button>
             </form>
         </main>

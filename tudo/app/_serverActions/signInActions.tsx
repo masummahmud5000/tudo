@@ -21,7 +21,7 @@ const SignInActions = async(userName: string,password: string) => {
                 const parts = cookieString.split(';');
                 const [name,value] = parts[0].split('=');
 
-                cookieStore.set(name,value,{httpOnly: true, sameSite: 'lax', secure: false, maxAge: 60 * 10})
+                cookieStore.set(name,value,{httpOnly: true, sameSite: 'lax', secure: false, maxAge: 36000})
             })
         };
         // console.log(res.status)

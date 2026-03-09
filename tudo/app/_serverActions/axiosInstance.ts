@@ -3,7 +3,7 @@
 import axios from "axios"
 import { cookies } from "next/headers"
 import { api } from "./axios"
-import { redirect } from "next/navigation"
+// import { redirect } from "next/navigation"
 
 
 export const serverApi = async (config: any) => {

@@ -76,7 +76,7 @@ const SingUpClient = () => {
                 </div>
                 <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{passwordError}</h1>
 
-                <span className="mt-5 text-blue-700">Already sing-up <Link className="cursor-pointer font-bold" href="/singIn">LogIn</Link></span>
+                <span className="mt-5 text-blue-700">Already sing-up <Link className="cursor-pointer font-bold" href="/signIn">LogIn</Link></span>
                 <button className="mt-8 bg-green-600 py-2 font-bold text-xl rounded-2xl text-white cursor-pointer hover:bg-green-700" type="submit">{isLoading ? <span className="flex justify-center items-center gap-3"><h1 className="fa fa-spinner text-2xl animate-spin"></h1>Proccess...</span> : "Submit"}</button>
             </form>
         </main>

@@ -32,11 +32,14 @@ export default function UserName (){
         setIsLoading(true)
         try{
             const res = await ListSubmit(subject,textBox);
-            // console.log(res)
+            // console.log(res.subject.includes('subjectTextOnly20Char'))
             if (res === 201){
-                setSubject("")
-                setTextBox("")
-                setTimeout(()=>setHide(false),2000)
+                setSubject('')
+                setTextBox('')
+
+                setSubError("")
+                setTextError("")
+                setTimeout(()=>setHide(false),500)
             }else if(res?.subject?.includes('subjectTextOnly20Char')){
                 setSubError("Maximum 20 Character")
                 setTextError("")
@@ -72,7 +75,7 @@ export default function UserName (){
                     <input value={subject} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSubject(e.target.value)} className="w-80" type="text" required placeholder="Enter Your User-Name"/>
                 </div>
 
-                <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{textError}</h1>
+                <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{subError}</h1>
 
                 <label className="text-xl mt-8">Text Box</label>
                 <div className="flex gap-2 items-center mt-4 text-xl">
@@ -81,6 +84,7 @@ export default function UserName (){
                 <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{textError}</h1>
                 <button className="mt-8 bg-green-600 py-2 font-bold text-xl rounded-2xl text-white cursor-pointer hover:bg-green-700" type="submit">{isLoading ? <span className="flex justify-center items-center gap-3"><h1 className="fa fa-spinner text-2xl animate-spin"></h1>Proccess...</span> : "Add List"}</button>
             </form>}
+    
         </main>
     )
 }
