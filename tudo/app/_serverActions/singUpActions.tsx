@@ -1,5 +1,5 @@
 'use server'
-import axios from "axios";
+import { api } from "./axios";
 
 const SingUpActions = async(name: string,userName: string,password: string) => {
 
@@ -10,7 +10,7 @@ const SingUpActions = async(name: string,userName: string,password: string) => {
     };
 
     try{
-        const res = await axios.post("https://render-6-pg2u.onrender.com/singup/", dataSet);
+        const res = await api.post("singup/", dataSet);
         // console.log(res.status)
         if (res?.status === 201){
             return res?.status;
