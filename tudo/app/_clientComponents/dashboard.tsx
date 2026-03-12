@@ -62,7 +62,7 @@ export default function UserName (){
 
                 <div className="flex gap-5">
                     <span onClick={() => setHide(!hide)} className="bg-green-600 hover:bg-green-700 text-center py-1  px-3 text-bold text-white rounded-lg cursor-pointer">+ Add List</span>
-                    <Link href='/dashboard/listItems' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg cursor-pointer">List Items</Link>
+                    <Link href='/dashboard/listItems/' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg cursor-pointer">List Items</Link>
 
                     <h1 onClick={triggerLogout} className="fa fa-right-from-bracket cursor-pointer absolute right-5 bottom-5 text-2xl text-red-600 bg-white rounded-xl p-1"></h1>
                 </div>
@@ -72,7 +72,7 @@ export default function UserName (){
                 <label className="text-xl mt-8">Subject</label>
                 <div className="flex gap-2 items-center mt-4 text-xl border-b-2 border-blue-600">
                     <h1 className="fa fa-book"></h1>
-                    <input value={subject} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSubject(e.target.value)} className="w-80" type="text" required placeholder="Enter Your User-Name"/>
+                    <input value={subject} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSubject(e.target.value)} className="w-80" type="text" required placeholder="Enter Your Subject"/>
                 </div>
 
                 <h1 className="text-center text-lg text-red-600 font-bold animate-pulse">{subError}</h1>
