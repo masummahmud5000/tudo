@@ -16,8 +16,10 @@ export default function UserName (){
     const [textError,setTextError] = useState<string>("")
 
     function triggerLogout(){
-        LogOut()
-        localStorage.removeItem('name');
+        if (confirm("Are You Sure LogOut this Account!")){
+            LogOut()
+            localStorage.removeItem('name');
+        }
     };
 
     useEffect(() => {
@@ -58,13 +60,13 @@ export default function UserName (){
         <main>
     
             <div className="relative bg-amber-700 py-5 px-5 flex flex-col gap-5 rounded-2xl">
+                <h1 onClick={triggerLogout} className="fa fa-right-from-bracket cursor-pointer absolute right-3 top-3 text-2xl text-red-600 bg-white rounded-xl p-1"></h1>
                 <h1 className="text-lg text-white">User Name : <span className="font-bold">{fetchName ? fetchName : 'Not Found'}</span></h1>
 
-                <div className="flex gap-5">
-                    <span onClick={() => setHide(!hide)} className="bg-green-600 hover:bg-green-700 text-center py-1  px-3 text-bold text-white rounded-lg cursor-pointer">+ Add List</span>
-                    <Link href='/dashboard/listItems/' className="bg-blue-300 hover:bg-red-400 text-center py-1  px-3 text-bold rounded-lg cursor-pointer">List Items</Link>
+                <div className="flex gap-3">
+                    <span onClick={() => setHide(!hide)} className="w-full max-w-sm bg-green-600 hover:bg-green-700 text-center py-2  px-3 text-bold text-white rounded-lg cursor-pointer">+ Add List</span>
+                    <Link href='/dashboard/listItems/' className="w-full max-w-sm bg-blue-300 hover:bg-red-400 text-center py-2  px-3 text-bold rounded-lg cursor-pointer">List Items</Link>
 
-                    <h1 onClick={triggerLogout} className="fa fa-right-from-bracket cursor-pointer absolute right-5 bottom-5 text-2xl text-red-600 bg-white rounded-xl p-1"></h1>
                 </div>
             </div>
             <hr className="mt-10"/>
